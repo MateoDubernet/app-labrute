@@ -10,10 +10,10 @@ export class BouclierBdd {
             connection.query("SELECT * FROM bouclier ", (error: Error, respons: Bouclier[]) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
-                } 
+                }
             })
         })
     }
@@ -24,7 +24,7 @@ export class BouclierBdd {
             [bouclier.robot_id, bouclier.id], (error: Error, respons: any) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
                 }

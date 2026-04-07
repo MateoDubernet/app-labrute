@@ -50,16 +50,16 @@ app.get('/', (request: Request, response: Response) => {
 app.get('/register', (request: Request, response: Response) => {
     login.loginNotExistError = false
     login.wrongLoginPassword = false
-    response.render('connection', { 
-        account: false, 
-        loginAlreadyExist: register.loginAlreadyExist, 
+    response.render('connection', {
+        account: false,
+        loginAlreadyExist: register.loginAlreadyExist,
         passwordMatchError: register.passwordMatchError})
 })
 
 app.get('/home', (request: Request, response: Response) => {
 
     response.render('home', {
-        connectedUser: login.currentUser, 
+        connectedUser: login.currentUser,
         connectedUserRobot: connectedUserRobot,
         armes: arme.armes,
         boucliers: bouclier.boucliers,
@@ -102,7 +102,6 @@ app.listen(4200)
 function getRobots() {
     robotBdd.getAllRobots().then((data: Robots[]) => {
         robots = [...data]
-        
         for (let i = 0; i < robots.length; i++) {
             if (robots[i].user_id === login.currentUser.id) {
                 connectedUserRobot = robots[i]
@@ -246,7 +245,7 @@ function equipItems(request: Request, response: Response) {
             connectedUserRobot.tenue_id = null
             removeStatByTenue(Number(tenueId))
         }
-        
+
         robotBdd.updateTenueRobots(connectedUserRobot).then((data: Robots[]) => {})
     }
     response.redirect('/home')

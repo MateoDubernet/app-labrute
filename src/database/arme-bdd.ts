@@ -10,10 +10,10 @@ export class ArmeBdd {
             connection.query("SELECT * FROM arme ", (error: Error, respons: Arme[]) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
-                } 
+                }
             })
         })
     }
@@ -24,7 +24,7 @@ export class ArmeBdd {
             [arme.robot_id, arme.id], (error: Error, respons: any) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
                 }

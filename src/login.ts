@@ -4,17 +4,15 @@ export class Login {
 
     public loginNotExistError: boolean;
     public wrongLoginPassword: boolean;
-    
+
     constructor(){}
 
     login(userData: Users, user: Users){
-    
         const foundLogin = user.users.find(user => user.login === userData.login)
         this.currentUser = foundLogin;
-          
+
         if (foundLogin) {
             this.loginNotExistError = false
-    
             if (foundLogin.password === userData.password) {
                 this.wrongLoginPassword = false
             }else{

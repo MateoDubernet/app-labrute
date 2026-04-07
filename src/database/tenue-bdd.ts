@@ -10,10 +10,10 @@ export class TenueBdd {
             connection.query("SELECT * FROM tenue ", (error: Error, respons: Tenue[]) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
-                } 
+                }
             })
         })
     }
@@ -24,7 +24,7 @@ export class TenueBdd {
             [tenue.robot_id, tenue.id], (error: Error, respons: any) => {
                 if (error){
                     reject(error)
-                } 
+                }
                 else{
                     result(respons)
                 }

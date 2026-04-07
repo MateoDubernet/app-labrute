@@ -1,6 +1,6 @@
 import { TenueBdd } from "../database/tenue-bdd";
 export class Tenue extends TenueBdd{
-    
+
     public id: number;
     public nom: string;
     public image: string;
@@ -8,7 +8,6 @@ export class Tenue extends TenueBdd{
     public puissance: number;
     public defense: number;
     public robot_id: number;
-    
     public tenues: Tenue[];
 
     constructor(){

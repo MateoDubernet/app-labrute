@@ -1,6 +1,6 @@
 import { ArmeBdd } from '../database/arme-bdd';
 export class Arme extends ArmeBdd{
-    
+
     public id: number;
     public nom: string;
     public image: string;

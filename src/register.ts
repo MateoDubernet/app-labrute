@@ -18,7 +18,6 @@ export class Register {
         }
 
         const foundLogin = user.users.find(user => user.login === formData.body.login)
-    
         if (foundLogin) {
             this.loginAlreadyExist = true
         }else{
@@ -33,7 +32,7 @@ export class Register {
                 formData.body.id = user.id + 1;
             });
         }
-        
+
         if(!this.loginAlreadyExist && !this.passwordMatchError){
             let newUserRobot = new Robots;
             newUserRobot.pseudo = formData.body.robotPseudo
