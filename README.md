@@ -3,11 +3,11 @@
 ## Présentation
 Ce projet a été réaliser durant mon alternance dans le cadre d'un devoir maison.L’objectif initial était de développer une application permettant de **simuler des combats de robots**. Faute de temps, la partie "combat" n’a pas pu être implémentée, mais plusieurs fonctionnalités essentielles sont présentes.
 
-### Architecture
-- **Express.js** pour le serveur
-- **TypeScript** pour la logique côté serveur
-- **EJS** comme moteur de templates (interfaces HTML dynamiques)
-- **Docker** pour l'infrastructure
+### Stack Technique
+- **Express.js**
+- **TypeScript**
+- **EJS**
+- **Docker**
 
 ---
 
@@ -29,7 +29,7 @@ Assurez-vous que le port 80 n'est pas déjà utilisé par une autre application 
 ```
 
 ### 3. Accès
-Ouvrez votre navigateur web à l'adresse: http://localhost
+Ouvrir un navigateur web et aller à l'adresse: http://localhost
 
 ---
 
