@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # --- Service de Base de Données (MySQL) ---
+  # --- Service de Base de Données ---
   db:
     image: mysql:8.0
     environment:
@@ -15,7 +15,7 @@ services:
       timeout: 5s
       retries: 10
 
-  # --- Service de l'Application (Node.js) ---
+  # --- Service de l'Application ---
   app-labrute:
     build: .
     command: sh -c "sleep 10 && npm start"
