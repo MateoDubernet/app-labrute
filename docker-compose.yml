@@ -8,7 +8,6 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=la_brute
     volumes:
-      # Injecte le script SQL dans le dossier d'initialisation de MySQL (Exécuté uniquement si le volume de données est vide)
       - ./app_brute_bdd.sql:/docker-entrypoint-initdb.d/app_brute_bdd.sql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
@@ -18,17 +17,15 @@ services:
 
   # --- Service de l'Application (Node.js) ---
   app-labrute:
-    build: . # Construit l'image à partir du Dockerfile présent dans le dossier actuel
-    command: sh -c "sleep 10 && npm start" # "sh -c" permet de combiner plusieurs commandes : ici on attend un peu pour laisser MySQL s'initialiser
+    build: .
+    command: sh -c "sleep 10 && npm start"
     ports:
-      - "80:4200" # Mappe le port 80 de la machine (localhost) sur le port 4200 du conteneur
+      - "80:4200"
     environment:
-      # Variables transmises à Node.js (accessibles via process.env)
-      - DB_HOST=db # Utilise le nom du service "db" comme nom d'hôte
+      - DB_HOST=db
       - DB_USER=root
       - DB_PASS=root
       - DB_NAME=la_brute
     depends_on:
       db:
-        # L'application ne démarrera que lorsque le "healthcheck" du service db sera validé
         condition: service_healthy
